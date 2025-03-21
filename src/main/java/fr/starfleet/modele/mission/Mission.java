@@ -117,26 +117,76 @@ public class Mission {
         return this.destination;
     }
 
+    /**
+     * Setter qui permet de changer de destination pour la mission
+     * @param newDestination : nouvelle destination pour la mission
+     */
     public void setDestination(String newDestination){
         this.destination = newDestination;
     }
 
+    /**
+     * Getter qui récupère le vaisseau de la mission
+     * @return : le vaisseau de la mission
+     */
     public Vaisseau getVaisseau(){
         return this.vaisseau;
     }
 
+    /**
+     * Setter qui permet de changer de vaisseau pour la mission
+     * @param newVaisseau : nouveau vaisseau pour la mission
+     */
+    public void setVaisseau(Vaisseau newVaisseau){
+        this.vaisseau = newVaisseau;
+    }
+
+    /**
+     * Getter qui récupère les réservations pour la mission
+     * @return : une liste de réservations
+     */
     public List<Reservation> getReservations(){
         return this.reservations;
     }
 
+    /**
+     * Setter qui permet de changer les réservations pour la mission
+     * @param newReservation : nouvelle réservation
+     */
+    public void setReservations(List<Reservation> newReservation){
+        this.reservations = newReservation;
+    }
+
+    /**
+     * Getter qui récupère le nombre de places disponibles pour la mission
+     * @return : le nombre de place pour la mission
+     */
     public int getNombrePlacesDisponibles(){
         return this.capaciteMaximale;
     }
 
+    /**
+     * Setter qui permet de changer le nombre de places disponibles pour la mission
+     * @param newPlaces : nouveau nombre de places disponibles
+     */
+    public void setNombresPlacesDisponibles(int newPlaces){
+        this.capaciteMaximale = newPlaces;
+    }
+
+    /**
+     * Méthode qui permet d'ajouter une réservation à la liste de réservation
+     * @param reservation : réservation à ajouter
+     * @return : true si la réservation a été ajoutée
+     */
     public boolean ajouterReservation(Reservation reservation){
         return this.reservations.add(reservation);
     }
 
+    /**
+     * Méthode qui permet de supprimer une réservation de la liste des réservations
+     * @param idReservation : id de la réservation pour rechercher dans la liste
+     * @return : true si la réservation a été supprimée
+     */
     public boolean annulerReservation(String idReservation){
         for (Reservation res : this.reservations) {
             if (res.getIdReservation().equals(idReservation)) {
