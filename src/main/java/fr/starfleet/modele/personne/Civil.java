@@ -45,10 +45,18 @@ public class Civil extends Personne{
         return this.motifVoyage;
     }
 
+    /**
+     * Setter pour modifier le motif du voyage
+     * @param newMotif : nouveau motif
+     */
     public void setMotifVoyage(String newMotif){
         this.motifVoyage = newMotif;
     }
 
+    /**
+     * Méthode pour afficher la description du civil
+     * @return : la description du civil
+     */
     @Override
     public String getDescription(){
         return "Le civil s'appelle " + super.getNom() + " , " + super.getPrenom() + " et sa planète d'origine est : " + this.getPlaneteOrigine() + " et il vient pour le motif : " + this.getMotifVoyage();
