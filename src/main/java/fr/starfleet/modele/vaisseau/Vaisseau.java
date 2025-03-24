@@ -97,16 +97,4 @@ public class Vaisseau {
         this.missions.add(mission);
     }
 
-    public static void afficherVaisseaux(List<Vaisseau> vaisseaux){
-        if(vaisseaux==null || vaisseaux.isEmpty()){
-            System.out.println("La liste de vaisseaux est vide. Aucun vaisseau n'est disponible");
-            return;
-        }else{
-            System.out.println("\nListe des vaisseaux : ");
-            for(Vaisseau vaisseau : vaisseaux){
-                System.out.println(vaisseau);
-            }
-        }
-    }
-
 }
