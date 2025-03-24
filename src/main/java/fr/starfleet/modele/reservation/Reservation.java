@@ -74,32 +74,68 @@ public class Reservation {
         return this.mission;
     }
 
+    /**
+     * Setter qui permet de modifier actuelle
+     * @param newMission : nouvelle mission 
+     */
     public void setMission(Mission newMission){
         this.mission = newMission;
     }
 
+    /**
+     * Getter qui permet de récupérer la date de réservation
+     * @return : la date de la réservation
+     */
     public Date getDateReservation(){
         return this.dateReservation;
     }
 
+    /**
+     * Setter qui permet de modifier la date de réservation
+     * @param newDate : nouvelle date de réservation
+     */
     public void setDateReservation(Date newDate){
         this.dateReservation = newDate;
     }
 
+    /**
+     * Getter qui permet de récupérer la confirmation la mission
+     * @return : true si la mission est confirmée
+     */
     public boolean getConfirmation(){
         return this.confirmee;
     }
 
+    /**
+     * Setter qui permet de modifier la confirmation de la mission
+     * @param newConfirmation : booléen pour dire si la mission est confirmer ou non
+     */
     public void setConfirmation(boolean newConfirmation){
         this.confirmee = newConfirmation;
     }
 
+    /**
+     * Méthode pour confirmer une réservation
+     */
     public void confirmer(){
-        
+        if(!this.confirmee){
+            this.confirmee = true;
+            System.out.println("La réservation " + this.idReservation + " a été confirmée");
+        }else{
+            System.out.println("La réservation " + this.idReservation + " a déjà été confirmée");
+        }
     }
 
+    /**
+     * Méthode pour annuler une réservation
+     */
     public void annuler(){
-
+        if(this.confirmee){
+            this.confirmee = false;
+            System.out.println("La réservation " + this.idReservation + " a été annulée");
+        }else{
+            System.out.println("La réservation " + this.idReservation + " a déjà été annulée"); 
+        }
     }
 
     
