@@ -85,6 +85,10 @@ public class Vaisseau {
         return this.missions;
     }
 
+    public String toString(){
+        return "Vaisseau : immatriculation : " + this.getImmatriculation() + " nom : " + this.getNom() + " et de capacité maximale : " + this.getCapaciteMaximale();
+    }
+
     /**
      * Méthode qui permet d'ajouter une mission à la liste des missions du vaisseau
      * @param mission : mission à ajouter
@@ -93,6 +97,16 @@ public class Vaisseau {
         this.missions.add(mission);
     }
 
-    
+    public static void afficherVaisseaux(List<Vaisseau> vaisseaux){
+        if(vaisseaux==null || vaisseaux.isEmpty()){
+            System.out.println("La liste de vaisseaux est vide. Aucun vaisseau n'est disponible");
+            return;
+        }else{
+            System.out.println("\nListe des vaisseaux : ");
+            for(Vaisseau vaisseau : vaisseaux){
+                System.out.println(vaisseau);
+            }
+        }
+    }
 
 }
