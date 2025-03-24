@@ -203,5 +203,16 @@ public class SystemeReservation {
         }
     }
 
+    public void afficherPersonnes(List<Personne> personnes){
+        if(personnes==null || personnes.isEmpty()){
+            System.out.println("La liste de personnes est vide. Aucune personne n'est disponible");
+            return;
+        }else{
+            System.out.println("\nListe des personnes : ");
+            for(Personne personne : personnes){
+                System.out.println(personne);
+            }
+        }
+    }
     
 }
