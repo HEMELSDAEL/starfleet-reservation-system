@@ -25,11 +25,11 @@ public class SystemeReservation {
      * @param missions : liste de missions du système de réservation
      * @param reservations : liste de réservation du système de réservation
      */
-    public SystemeReservation(List<Vaisseau> vaisseaux, List<Personne> personnes, List<Mission> missions, List<Reservation> reservations ){
-        this.vaisseaux = vaisseaux;
-        this.personnes = personnes;
-        this.missions = missions;
-        this.reservations = reservations;
+    public SystemeReservation(){
+        this.vaisseaux = new ArrayList<>();
+        this.personnes = new ArrayList<>();
+        this.missions = new ArrayList<>();
+        this.reservations = new ArrayList<>();
     }
 
     /**
