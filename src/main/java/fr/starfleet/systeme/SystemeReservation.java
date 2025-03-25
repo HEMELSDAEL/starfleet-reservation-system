@@ -1,11 +1,10 @@
-package starfleet_reservation_system.src.main.java.fr.starfleet.systeme;
+package fr.starfleet.systeme;
 
+import fr.starfleet.modele.mission.Mission;
+import fr.starfleet.modele.personne.Personne;
+import fr.starfleet.modele.reservation.Reservation;
+import fr.starfleet.modele.vaisseau.Vaisseau;
 import java.util.*;
-
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.mission.Mission;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.Personne;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.reservation.Reservation;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.vaisseau.Vaisseau;
 
 /**Classe SystemeReservation */
 public class SystemeReservation {
@@ -203,7 +202,6 @@ public class SystemeReservation {
     public void afficherVaisseaux(List<Vaisseau> vaisseaux){
         if(vaisseaux==null || vaisseaux.isEmpty()){
             System.out.println("La liste de vaisseaux est vide. Aucun vaisseau n'est disponible");
-            return;
         }else{
             System.out.println("\nListe des vaisseaux : ");
             for(Vaisseau vaisseau : vaisseaux){
@@ -215,7 +213,6 @@ public class SystemeReservation {
     public void afficherPersonnes(List<Personne> personnes){
         if(personnes==null || personnes.isEmpty()){
             System.out.println("La liste de personnes est vide. Aucune personne n'est disponible");
-            return;
         }else{
             System.out.println("\nListe des personnes : ");
             for(Personne personne : personnes){
@@ -227,7 +224,6 @@ public class SystemeReservation {
     public void afficherMissions(List<Mission> missions){
         if(missions==null || missions.isEmpty()){
             System.out.println("La liste des missions est vide. Aucune mission n'est disponible");
-            return;
         }else{
             System.out.println("\nListe des missions : ");
             for(Mission mission : missions){
@@ -235,5 +231,17 @@ public class SystemeReservation {
             }
         }
     }
+
+    public void afficherReservations(List<Reservation> reservations){
+        if(reservations==null || reservations.isEmpty()){
+            System.out.println("La liste des réservations est vide. Aucune réservatoin n'est disponible");
+        }else{
+            System.out.println("\nListe des réservations : ");
+            for(Reservation reservation : reservations){
+                System.out.println(reservation);
+            }
+        }
+    }
+
     
 }
