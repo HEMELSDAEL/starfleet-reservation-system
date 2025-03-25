@@ -1,6 +1,6 @@
 package starfleet_reservation_system.src.main.java.fr.starfleet.ui;
 
-import java.time.temporal.ValueRange;
+import java.text.*;
 import java.util.*;
 
 import starfleet_reservation_system.src.main.java.fr.starfleet.modele.mission.Mission;
@@ -149,12 +149,20 @@ public class InterfaceConsole {
                 String codeMission = scanner.nextLine();
                 System.out.println("Description de la mission");
                 String descripMission = scanner.nextLine();
-                System.out.println("Date de départ de la mission (JJ-MM-AAAA)");
-                String dateDepart = scanner.nextLine();
-                Date dateDepart2 = Date.valueOf(dateDepart);
-                System.out.print("Date de retour (JJ-MM-AAAA) : ");
-                String dateRetour = scanner.nextLine();
-                Date dateRetour2 = Date.valueOf(dateRetour2);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date dateDepart = null;
+                Date dateRetour = null;
+                try{
+                    System.out.println("Date de départ de la mission (JJ-MM-AAAA)");
+                    String dateDepartStr = scanner.nextLine();
+                    dateDepart = sdf.parse(dateDepartStr);
+                    System.out.print("Date de retour (JJ-MM-AAAA) : ");
+                    String dateRetourStr = scanner.nextLine();
+                    dateRetour = sdf.parse(dateRetourStr);
+                }catch(ParseException e){
+                    System.out.println("Erreur du format de la date : Utilisez le format : JJ-MM-AAAA");
+                    return;
+                }
                 System.out.print("Destination de la mission : ");
                 String destination = scanner.nextLine();
                 System.out.print("Capacité maximale de la mission : ");
@@ -163,7 +171,7 @@ public class InterfaceConsole {
                 systeme.afficherVaisseaux(systeme.getVaisseaux());
                 System.out.print("Choisissez le vaisseau (ID) pour cette mission : ");
                 String idVaisseau = scanner.nextLine();
-                Vaisseau vaisseauChoisi = systeme.getVaisseaux().getImmatriculation(idVaisseau);
+                Vaisseau vaisseauChoisi = systeme.getVaisseauParId(idVaisseau);
                 Mission mission = new Mission(codeMission, descripMission, dateDepart, dateRetour, destination, vaisseauChoisi, new ArrayList<>(), capaciteMaximale);
                 systeme.creerMission(mission);
                 System.out.println("Mission ajoutée !");
