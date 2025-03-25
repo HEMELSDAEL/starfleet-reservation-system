@@ -3,6 +3,7 @@ package starfleet_reservation_system.src.main.java.fr.starfleet.ui;
 import java.time.temporal.ValueRange;
 import java.util.*;
 
+import starfleet_reservation_system.src.main.java.fr.starfleet.modele.mission.Mission;
 import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.Civil;
 import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.Officier;
 import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.Personne;
@@ -139,6 +140,37 @@ public class InterfaceConsole {
         System.out.println("Votre choix : ");
         int choix = scanner.nextInt();
         scanner.nextLine();
+        switch(choix){
+            case 1:
+                systeme.afficherMissions(systeme.getMissions());
+                break;
+            case 2:
+                System.out.println("Code de la mission : ");
+                String codeMission = scanner.nextLine();
+                System.out.println("Description de la mission");
+                String descripMission = scanner.nextLine();
+                System.out.println("Date de départ de la mission (JJ-MM-AAAA)");
+                String dateDepart = scanner.nextLine();
+                Date dateDepart2 = Date.valueOf(dateDepart);
+                System.out.print("Date de retour (JJ-MM-AAAA) : ");
+                String dateRetour = scanner.nextLine();
+                Date dateRetour2 = Date.valueOf(dateRetour2);
+                System.out.print("Destination de la mission : ");
+                String destination = scanner.nextLine();
+                System.out.print("Capacité maximale de la mission : ");
+                int capaciteMaximale = scanner.nextInt();
+                scanner.nextLine();
+                systeme.afficherVaisseaux(systeme.getVaisseaux());
+                System.out.print("Choisissez le vaisseau (ID) pour cette mission : ");
+                String idVaisseau = scanner.nextLine();
+                Vaisseau vaisseauChoisi = systeme.getVaisseaux().getImmatriculation(idVaisseau);
+                Mission mission = new Mission(codeMission, descripMission, dateDepart, dateRetour, destination, vaisseauChoisi, new ArrayList<>(), capaciteMaximale);
+                systeme.creerMission(mission);
+                System.out.println("Mission ajoutée !");
+                break;
+            default:
+                System.out.println("Choix invalide");
+        }
     }
 
     private void gererReservations(){
