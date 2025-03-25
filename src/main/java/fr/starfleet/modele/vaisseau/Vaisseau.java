@@ -1,8 +1,7 @@
-package starfleet_reservation_system.src.main.java.fr.starfleet.modele.vaisseau;
+package fr.starfleet.modele.vaisseau;
 
+import fr.starfleet.modele.mission.Mission;
 import java.util.*;
-
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.mission.Mission;
 
 /**Classe Vaisseau du projet */
 public class Vaisseau {
@@ -85,6 +84,8 @@ public class Vaisseau {
         return this.missions;
     }
 
+    
+    @Override
     public String toString(){
         return "Vaisseau : immatriculation : " + this.getImmatriculation() + " nom : " + this.getNom() + " et de capacité maximale : " + this.getCapaciteMaximale();
     }
@@ -95,6 +96,10 @@ public class Vaisseau {
      */
     public void ajouterMission(Mission mission){
         this.missions.add(mission);
+    }
+
+    public void setMissions(List<Mission> missions) {
+        this.missions = missions;
     }
 
 }
