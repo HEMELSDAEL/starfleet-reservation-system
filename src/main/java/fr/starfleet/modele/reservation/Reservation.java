@@ -1,9 +1,9 @@
-package starfleet_reservation_system.src.main.java.fr.starfleet.modele.reservation;
+package fr.starfleet.modele.reservation;
 
 import java.util.*;
 
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.mission.Mission;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.Personne;
+import fr.starfleet.modele.mission.Mission;
+import fr.starfleet.modele.personne.Personne;
 
 /**Classe réservation */
 public class Reservation {
