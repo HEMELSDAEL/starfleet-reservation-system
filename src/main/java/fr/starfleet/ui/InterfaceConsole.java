@@ -1,17 +1,16 @@
-package starfleet_reservation_system.src.main.java.fr.starfleet.ui;
+package fr.starfleet.ui;
 
+import fr.starfleet.modele.mission.Mission;
+import fr.starfleet.modele.personne.*;
+import fr.starfleet.modele.vaisseau.Vaisseau;
+import fr.starfleet.systeme.SystemeReservation;
 import java.io.*;
 import java.text.*;
 import java.util.*;
 
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.mission.Mission;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.*;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.vaisseau.Vaisseau;
-import starfleet_reservation_system.src.main.java.fr.starfleet.systeme.SystemeReservation;
-
 public class InterfaceConsole {
-    private SystemeReservation systeme;
-    private Scanner scanner;
+    private final SystemeReservation systeme;
+    private final Scanner scanner;
 
     public InterfaceConsole(){
         this.systeme = new SystemeReservation();
@@ -43,6 +42,9 @@ public class InterfaceConsole {
                     break;
                 case 6:
                     chargerDonnees("sauvegarde.dat");
+                    break;
+                case 7:
+                    continuer = false;
                     break;
                 default: 
                     System.out.println("Choix invalide. Veuillez réessayer !");
