@@ -214,5 +214,17 @@ public class SystemeReservation {
             }
         }
     }
+
+    public void afficherMissions(List<Mission> missions){
+        if(missions==null || missions.isEmpty()){
+            System.out.println("La liste des missions est vide. Aucune mission n'est disponible");
+            return;
+        }else{
+            System.out.println("\nListe des missions : ");
+            for(Mission mission : missions){
+                System.out.println(mission);
+            }
+        }
+    }
     
 }
