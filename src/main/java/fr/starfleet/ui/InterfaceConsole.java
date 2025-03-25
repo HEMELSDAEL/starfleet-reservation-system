@@ -182,7 +182,25 @@ public class InterfaceConsole {
     }
 
     private void gererReservations(){
-
+        System.out.println("\n===== Gestion des Réservations =====");
+        System.out.println("1. Afficher toutes les réservations");
+        System.out.println("2. Créer une réservation");
+        System.out.println("0. Retour au menu principal");
+        System.out.print("Votre choix : ");
+        int choix = scanner.nextInt();
+        scanner.nextLine();
+        switch (choix) {
+            case 1:
+                systeme.afficherReservations(systeme.getReservations());
+                break;
+            case 2:
+                System.out.print("ID de la personne : ");
+                String idPersonne = scanner.nextLine();
+                systeme.effectuerReservation(idPersonne);
+                System.out.println("Réservation créée !");
+            default:
+                break;
+        }
     }
 
     private void sauvegarderDonnees(){
