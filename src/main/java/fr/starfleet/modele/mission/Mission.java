@@ -1,9 +1,8 @@
-package starfleet_reservation_system.src.main.java.fr.starfleet.modele.mission;
+package fr.starfleet.modele.mission;
 
+import fr.starfleet.modele.reservation.Reservation;
+import fr.starfleet.modele.vaisseau.Vaisseau;
 import java.util.*;
-
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.reservation.Reservation;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.vaisseau.Vaisseau;
 /**Classe Mission */
 public class Mission {
     /**Attribut code de la mission */
