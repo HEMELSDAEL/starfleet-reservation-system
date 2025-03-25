@@ -1,12 +1,11 @@
 package starfleet_reservation_system.src.main.java.fr.starfleet.ui;
 
+import java.io.*;
 import java.text.*;
 import java.util.*;
 
 import starfleet_reservation_system.src.main.java.fr.starfleet.modele.mission.Mission;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.Civil;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.Officier;
-import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.Personne;
+import starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne.*;
 import starfleet_reservation_system.src.main.java.fr.starfleet.modele.vaisseau.Vaisseau;
 import starfleet_reservation_system.src.main.java.fr.starfleet.systeme.SystemeReservation;
 
@@ -19,7 +18,7 @@ public class InterfaceConsole {
         this.scanner = new Scanner(System.in);
     }
 
-    public void demarrer(){
+    public void demarrer() throws IOException{
         boolean continuer = true;
         while(continuer){
             afficherMenu();
@@ -40,10 +39,10 @@ public class InterfaceConsole {
                     gererReservations();
                     break;
                 case 5:
-                    sauvegarderDonnees();
+                    sauvegarderDonnees("sauvegarde.dat");
                     break;
                 case 6:
-                    chargerDonnees();
+                    chargerDonnees("sauvegarde.dat");
                     break;
                 default: 
                     System.out.println("Choix invalide. Veuillez réessayer !");
@@ -203,12 +202,26 @@ public class InterfaceConsole {
         }
     }
 
-    private void sauvegarderDonnees(){
-
+    private void sauvegarderDonnees(String fichier) throws IOException{
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))){
+            oos.writeObject(this);
+            System.out.println("Données sauvegardées avec succès !");
+        }catch(IOException e){
+            System.out.println("Erreur lors de la sauvegarde des données.");
+        }
     }
 
-    private void chargerDonnees(){
-        
+    public static SystemeReservation chargerDonnees(String fichier){
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier))){
+            return (SystemeReservation) ois.readObject();
+        }catch(FileNotFoundException e){
+            System.out.println("Fichier non trouvé : " + fichier);
+    } catch (IOException e) {
+        System.out.println("Erreur d'entrée/sortie lors du chargement des données.");
+    } catch (ClassNotFoundException e) {
+        System.out.println("Classe non trouvée lors de la désérialisation.");
+    }
+    return null;
     }
 
 }
