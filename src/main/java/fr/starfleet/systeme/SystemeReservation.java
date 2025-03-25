@@ -40,6 +40,15 @@ public class SystemeReservation {
         return this.vaisseaux;
     }
 
+    public Vaisseau getVaisseauParId(String idVaisseau) {
+        for (Vaisseau vaisseau : this.vaisseaux) { 
+            if (vaisseau.getImmatriculation().equals(idVaisseau)) { 
+                return vaisseau;
+            }
+        }
+        return null; 
+    }
+
     /**
      * Setter qui permet de modifier la liste des vaisseaux
      * @param newVaisseau : nouvelle liste de vaisseaux
