@@ -1,4 +1,4 @@
-package starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne;
+package fr.starfleet.modele.personne;
 
 /**Classe Civil qui hérite de la classe Personne */
 public class Civil extends Personne{
@@ -59,7 +59,7 @@ public class Civil extends Personne{
      */
     @Override
     public String getDescription(){
-        return "Le civil s'appelle " + super.getNom() + " , " + super.getPrenom() + " et sa planète d'origine est : " + this.getPlaneteOrigine() + " et il vient pour le motif : " + this.getMotifVoyage();
+        return "Le civil s'appelle " + getNom() + " , " + getPrenom() + " et sa planète d'origine est : " + this.getPlaneteOrigine() + " et il vient pour le motif : " + this.getMotifVoyage();
     }
     
 }

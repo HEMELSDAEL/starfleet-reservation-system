@@ -1,4 +1,4 @@
-package starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne;
+package fr.starfleet.modele.personne;
 
 /**Classe Officer qui hérite de la classe Personne */
 public class Officier extends Personne{

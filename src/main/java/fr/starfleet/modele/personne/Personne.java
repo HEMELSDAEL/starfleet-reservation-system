@@ -1,4 +1,5 @@
-package starfleet_reservation_system.src.main.java.fr.starfleet.modele.personne;
+package fr.starfleet.modele.personne;
+
 /**Classe personne */
 public abstract class Personne {
     /**Attribut nom*/
