@@ -69,6 +69,11 @@ public abstract class Personne {
         this.identifiant = newId;
     }
 
+
+    @Override
+    public String toString(){
+        return "ID : " + this.identifiant + ", Nom : " + this.nom + ", Prénom : " + this.prenom;
+    }
     /**
      * Méthode abstraite pour implémenter une description
      * @return : la description de la personne
