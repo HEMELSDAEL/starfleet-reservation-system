@@ -67,7 +67,8 @@ public class InterfaceConsole {
         System.out.println("\n-----Gestion des vaisseaux-----");
         System.out.println("1. Afficher tous les vaisseaux");
         System.out.println("2. Ajouter un vaisseau");
-        System.out.println("3. Retour au menu de gestion");
+        System.out.println("3. Supprimer un vaisseau");
+        System.out.println("4. Retour au menu de gestion");
         System.out.println("Votre choix : ");
         int choix = scanner.nextInt();
         scanner.nextLine();
@@ -86,7 +87,12 @@ public class InterfaceConsole {
                 Vaisseau nouveauVaisseau = new Vaisseau(nomVaisseau, immatriculation, capacite, null);
                 systeme.ajouterVaisseau(nouveauVaisseau);
                 System.out.println("Vaisseau ajouté avec succès"); 
-                break;       
+                break;  
+            case 3:
+                System.out.println("ID du vaisseau à supprimer :");
+                String idVaisseau = scanner.nextLine();
+                systeme.supprimerVaisseau(idVaisseau);  
+                break;  
             default:
                 System.out.println("Choix invalide !");
         }
@@ -96,7 +102,8 @@ public class InterfaceConsole {
         System.out.println("\n-----Gestion des personnes-----");
         System.out.println("1. Afficher toutes les personnes");
         System.out.println("2. Ajouter une personne");
-        System.out.println("3. Retour au menu de gestion");
+        System.out.println("3. Supprimer une personne");
+        System.out.println("4. Retour au menu de gestion");
         System.out.println("Votre choix : ");
         int choix = scanner.nextInt();
         scanner.nextLine();
@@ -129,8 +136,13 @@ public class InterfaceConsole {
                     System.out.println("Choix invalide");
                 }
                 break;
-                default:
-                    System.out.println("Choix invalide");
+            case 3:
+                System.out.println("Id de la personne à supprimer : ");
+                String idPersonne = scanner.nextLine();
+                systeme.supprimerPersonne(idPersonne);
+                break;
+            default:
+                System.out.println("Choix invalide");
         }
     }
 
@@ -138,6 +150,8 @@ public class InterfaceConsole {
         System.out.println("\n-----Gestion des missions-----");
         System.out.println("1. Afficher toutes les missions");
         System.out.println("2. Ajouter une mission");
+        System.out.println("3. Supprimer une mission");
+        System.out.println("4. Retour au menu de gestion");
         System.out.println("Votre choix : ");
         int choix = scanner.nextInt();
         scanner.nextLine();
@@ -146,6 +160,10 @@ public class InterfaceConsole {
                 systeme.afficherMissions(systeme.getMissions());
                 break;
             case 2:
+                if(systeme.getVaisseaux().isEmpty()){
+                    System.out.println("Aucun vaisseau de disponible pour cette mission. Ajouter un vaisseau d'abord !");
+                    return;
+                }
                 System.out.println("Code de la mission : ");
                 String codeMission = scanner.nextLine();
                 System.out.println("Description de la mission");
@@ -173,9 +191,18 @@ public class InterfaceConsole {
                 System.out.print("Choisissez le vaisseau (ID) pour cette mission : ");
                 String idVaisseau = scanner.nextLine();
                 Vaisseau vaisseauChoisi = systeme.getVaisseauParId(idVaisseau);
+                if(capaciteMaximale>vaisseauChoisi.getCapaciteMaximale()){
+                    System.out.println("La capacité de la mission dépasse celle du vaisseau. Impossible d'ajouter la mission : il faut réduire le personne ! ");
+                    return;
+                }
                 Mission mission = new Mission(codeMission, descripMission, dateDepart, dateRetour, destination, vaisseauChoisi, new ArrayList<>(), capaciteMaximale);
                 systeme.creerMission(mission);
                 System.out.println("Mission ajoutée !");
+                break;
+            case 3:
+                System.out.println("ID de la mission à supprimer");
+                String idMission = scanner.nextLine();
+                systeme.supprimerMission(idMission);
                 break;
             default:
                 System.out.println("Choix invalide");
@@ -186,7 +213,8 @@ public class InterfaceConsole {
         System.out.println("\n===== Gestion des Réservations =====");
         System.out.println("1. Afficher toutes les réservations");
         System.out.println("2. Créer une réservation");
-        System.out.println("0. Retour au menu principal");
+        System.out.println("3. Supprimer une réservation");
+        System.out.println("4. Retour au menu principal");
         System.out.print("Votre choix : ");
         int choix = scanner.nextInt();
         scanner.nextLine();
@@ -197,8 +225,19 @@ public class InterfaceConsole {
             case 2:
                 System.out.print("ID de la personne : ");
                 String idPersonne = scanner.nextLine();
+                Personne personne = systeme.getPersonneParId(idPersonne);
+                if(personne ==null){
+                    System.out.println("Aucune personne n'a été trouvée avec cette ID. Impossible de créer la réservation");
+                    return;
+                }
                 systeme.effectuerReservation(idPersonne);
                 System.out.println("Réservation créée !");
+                break;
+            case 3:
+                System.out.println("ID de la réservation à supprimer : ");
+                String idReservation = scanner.nextLine();
+                systeme.supprimerReservation(idReservation);
+                break;
             default:
                 break;
         }
