@@ -2,6 +2,7 @@ package fr.starfleet.modele.mission;
 
 import fr.starfleet.modele.reservation.Reservation;
 import fr.starfleet.modele.vaisseau.Vaisseau;
+import java.text.SimpleDateFormat;
 import java.util.*;
 /**Classe Mission */
 public class Mission {
@@ -170,6 +171,15 @@ public class Mission {
      */
     public void setNombresPlacesDisponibles(int newPlaces){
         this.capaciteMaximale = newPlaces;
+    }
+
+    @Override
+    public String toString() {
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    return "Mission: " + code + " | " + description + " | Départ: " + sdf.format(dateDepart) +
+           " | Retour: " + sdf.format(dateRetour) + " | Destination: " + destination +
+           " | Vaisseau: " + (vaisseau != null ? vaisseau.getNom() : "Aucun") +
+           " | Capacité: " + capaciteMaximale;
     }
 
     /**
