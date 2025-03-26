@@ -48,6 +48,15 @@ public class SystemeReservation {
         return null; 
     }
 
+    public Personne getPersonneParId(String idPersonne) {
+        for (Personne personne : this.personnes) { 
+            if (personne.getIdentifiant().equals(idPersonne)) { 
+                return personne;
+            }
+        }
+        return null; 
+    }
+
     /**
      * Setter qui permet de modifier la liste des vaisseaux
      * @param newVaisseau : nouvelle liste de vaisseaux
@@ -113,6 +122,26 @@ public class SystemeReservation {
     }
 
     /**
+     * Méthode pour supprimer un vaisseau par son immatriculation
+     * @param idVaisseau : immatriculation du vaisseau à supprimer
+     */
+    public void supprimerVaisseau(String idVaisseau){
+        Vaisseau vaisseauSupp = null;
+        for(Vaisseau vaisseau : vaisseaux){
+            if(vaisseau.getImmatriculation().equals(idVaisseau)){
+                vaisseauSupp = vaisseau;
+                break;
+            }
+        }
+        if(vaisseauSupp!= null){
+            vaisseaux.remove(vaisseauSupp);
+            System.out.println("Vaisseau supprimé avec succès");
+        }else{
+            System.out.println("Vaisseau non trouvé");
+        }
+    }
+
+    /**
      * Méthode qui va ajouter une personne à la liste des personnes du système de réservation
      * @param personne : personne à ajouter
      */
@@ -121,11 +150,49 @@ public class SystemeReservation {
     }
 
     /**
+     * Méthode pour supprimer une personne par son identifiant
+     * @param idPersonne : identifiant de la personne à supprimer
+     */
+    public void supprimerPersonne(String idPersonne){
+        Personne personneSupp = null;
+        for(Personne personne : personnes){
+            if(personne.getIdentifiant().equals(idPersonne)){
+                personneSupp = personne;
+            }
+        }
+        if(personneSupp!=null){
+            personnes.remove(personneSupp);
+            System.out.println("La personne a bien été supprimée avec succès");
+        }else{
+            System.out.println("La personne n'a pas été trouvée");
+        }
+    }
+
+    /**
      * Méthode qui va créer une mission à ajotuer à la liste des missions du système de réservation
      * @param mission : mission à ajouter
      */
     public void creerMission(Mission mission){
         this.missions.add(mission);
+    }
+
+    /**
+     * Méthode pour supprimer une mission par son identifiant
+     * @param idMission : identifiant de la mission à supprimer
+     */
+    public void supprimerMission(String idMission){
+        Mission missionASupprimer = null;
+        for (Mission mission : missions) {
+            if (mission.getCode().equals(idMission)) {
+                missionASupprimer = mission;
+            }
+        }
+        if (missionASupprimer != null) {
+            missions.remove(missionASupprimer);
+            System.out.println("Mission supprimée avec succès !");
+        } else {
+            System.out.println("Mission non trouvée.");
+        }
     }
 
     /**
@@ -165,6 +232,26 @@ public class SystemeReservation {
 
         System.out.println("Réservation effectuée avec succès !");
         return nouvelleReservation;
+    }
+
+    /**
+     * Méthode pour supprimer une réservation par son identifiant
+     * @param idReservation : identifiant de la réservation à supprimer
+     */
+    public void supprimerReservation(String idReservation) {
+        Reservation reservationASupprimer = null;
+        for (Reservation reservation : reservations) {
+            if (reservation.getIdReservation().equals(idReservation)) {
+                reservationASupprimer = reservation;
+                break;
+            }
+        }
+        if (reservationASupprimer != null) {
+            reservations.remove(reservationASupprimer);
+            System.out.println("Réservation supprimée avec succès !");
+        } else {
+            System.out.println("Réservation non trouvée.");
+        }
     }
 
 
