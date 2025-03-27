@@ -1,12 +1,12 @@
 package fr.starfleet.modele.reservation;
 
-import java.util.*;
-
 import fr.starfleet.modele.mission.Mission;
 import fr.starfleet.modele.personne.Personne;
+import java.io.Serializable;
+import java.util.*;
 
 /**Classe réservation */
-public class Reservation {
+public class Reservation implements Serializable{
     /**Attribut idReservation de la classe reservation */
     private String idReservation;
     /**Attribut personne de la classe */
