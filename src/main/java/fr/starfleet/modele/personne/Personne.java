@@ -72,6 +72,9 @@ public abstract class Personne implements Serializable{
     }
 
 
+    /**
+     * Méthode toString pour afficher une description de la personne
+     */
     @Override
     public String toString(){
         return "ID : " + this.identifiant + ", Nom : " + this.nom + ", Prénom : " + this.prenom;
