@@ -40,6 +40,11 @@ public class SystemeReservation implements Serializable{
         return this.vaisseaux;
     }
 
+    /**
+     * Méthode pour récupérer les vaisseaux par id
+     * @param idVaisseau : id du vaisseau
+     * @return : le vaisson récupéré
+     */
     public Vaisseau getVaisseauParId(String idVaisseau) {
         for (Vaisseau vaisseau : this.vaisseaux) { 
             if (vaisseau.getImmatriculation().equals(idVaisseau)) { 
@@ -49,6 +54,11 @@ public class SystemeReservation implements Serializable{
         return null; 
     }
 
+    /**
+     * Méthode pour récupérer les personnes par id
+     * @param idPersonne : id de la personne
+     * @return : la personne récupérée
+     */
     public Personne getPersonneParId(String idPersonne) {
         for (Personne personne : this.personnes) { 
             if (personne.getIdentifiant().equals(idPersonne)) { 
@@ -287,6 +297,10 @@ public class SystemeReservation implements Serializable{
         System.out.println("Les données ont été chargées depuis le fichier : " + fichier);
     }
 
+    /**
+     * Méthode pour afficher la liste des vaisseaux
+     * @param vaisseaux : liste des vaisseaux
+     */
     public void afficherVaisseaux(List<Vaisseau> vaisseaux){
         if(vaisseaux==null || vaisseaux.isEmpty()){
             System.out.println("La liste de vaisseaux est vide. Aucun vaisseau n'est disponible");
@@ -298,6 +312,10 @@ public class SystemeReservation implements Serializable{
         }
     }
 
+    /**
+     * Méthode pour afficher la liste des personnes
+     * @param personnes : liste des personnes
+     */
     public void afficherPersonnes(List<Personne> personnes){
         if(personnes==null || personnes.isEmpty()){
             System.out.println("La liste de personnes est vide. Aucune personne n'est disponible");
@@ -309,6 +327,10 @@ public class SystemeReservation implements Serializable{
         }
     }
 
+    /**
+     * Méthode pour afficher la liste des missions
+     * @param missions : liste des missions
+     */
     public void afficherMissions(List<Mission> missions){
         if(missions==null || missions.isEmpty()){
             System.out.println("La liste des missions est vide. Aucune mission n'est disponible");
@@ -320,6 +342,10 @@ public class SystemeReservation implements Serializable{
         }
     }
 
+    /**
+     * Méthode pour afficher la liste des réservations
+     * @param reservations : liste des reservations
+     */
     public void afficherReservations(List<Reservation> reservations){
         if(reservations==null || reservations.isEmpty()){
             System.out.println("La liste des réservations est vide. Aucune réservatoin n'est disponible");
