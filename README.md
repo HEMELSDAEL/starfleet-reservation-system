@@ -18,6 +18,11 @@
 
 
 ## Captures d'écran du projet : 
+* capture d'écran du menu de gestion de starfleet reservation : ![Menu de gestion de starfleet](screenshots/menu_gestion_starfleet.png)
+* capture d'écran de la gestion des vaisseaux : ![Menu de gestion des vaisseaux](screenshots/gestion_vaisseaux.png)
+* capture d'écran : afficher tous les vaisseaux : ![Afficher vaisseaux](screenshots/afficher_vaisseau.png)
+* capture d'écran d'ajouter un vaisseau : ![Ajouter vaisseau](screenshots/ajouter_vaisseau.png)
+* capture d'écran de supprimer un vaisseau : ![Supprimer vaisseau](screenshots/supprimer_vaisseau.png)
 
 ## Difficultés rencontrées : 
 Problèmes liés à la configuration du classpath donc j'avais quelques erreurs liées à mes packages et mes imports. J'ai réussi à corriger ce problème en modifiant le classpath. 
