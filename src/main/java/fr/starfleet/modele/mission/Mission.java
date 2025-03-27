@@ -174,6 +174,10 @@ public class Mission implements Serializable{
         this.capaciteMaximale = newPlaces;
     }
 
+    /**
+     * Méthode pour afficher des informations sur la mission
+     * @return : une description de la mission
+     */
     @Override
     public String toString() {
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
