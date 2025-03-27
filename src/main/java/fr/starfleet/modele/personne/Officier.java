@@ -1,7 +1,9 @@
 package fr.starfleet.modele.personne;
 
+import java.io.Serializable;
+
 /**Classe Officer qui hérite de la classe Personne */
-public class Officier extends Personne{
+public class Officier extends Personne implements Serializable{
     /**Attribut rang de l'officier */
     private String rang;
     /**Attribut specialite de l'officer */

@@ -1,7 +1,9 @@
 package fr.starfleet.modele.personne;
 
+import java.io.Serializable;
+
 /**Classe personne */
-public abstract class Personne {
+public abstract class Personne implements Serializable{
     /**Attribut nom*/
     private String nom;
     /**Attribut prenom */

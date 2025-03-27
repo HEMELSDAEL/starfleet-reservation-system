@@ -1,7 +1,9 @@
 package fr.starfleet.modele.personne;
 
+import java.io.Serializable;
+
 /**Classe Civil qui hérite de la classe Personne */
-public class Civil extends Personne{
+public class Civil extends Personne implements Serializable{
     /**Attribut planeteOrigine du civil */
     private String planeteOrigine;
     /**Attribut motifVoyage du civil */
