@@ -138,5 +138,20 @@ public class Reservation implements Serializable{
         }
     }
 
+    /**
+     * Méthode toString pour afficher une description de la réservation
+     * @return : une description de la réservation
+     */
+    @Override
+    public String toString() {
+        return "Reservation{" +
+            "id='" + idReservation + '\'' +
+            ", personne=" + personne.getNom() + " " + personne.getPrenom() +
+            ", mission=" + mission.getCode() +
+            ", dateReservation=" + dateReservation +
+            '}';
+}
+
+
     
 }
