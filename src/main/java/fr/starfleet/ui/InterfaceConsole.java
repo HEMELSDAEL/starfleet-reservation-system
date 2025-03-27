@@ -10,7 +10,7 @@ import java.util.*;
 
 public class InterfaceConsole {
     private final SystemeReservation systeme;
-    private final Scanner scanner;
+    private transient final Scanner scanner;
 
     public InterfaceConsole(){
         this.systeme = new SystemeReservation();
@@ -38,10 +38,10 @@ public class InterfaceConsole {
                     gererReservations();
                     break;
                 case 5:
-                    sauvegarderDonnees("sauvegarde.dat");
+                    sauvegarderDonnees("sauvegarde.txt");
                     break;
                 case 6:
-                    chargerDonnees("sauvegarde.dat");
+                    chargerDonnees("sauvegarde.txt");
                     break;
                 case 7:
                     continuer = false;
@@ -245,10 +245,11 @@ public class InterfaceConsole {
 
     private void sauvegarderDonnees(String fichier) throws IOException{
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))){
-            oos.writeObject(this);
+            oos.writeObject(systeme);
             System.out.println("Données sauvegardées avec succès !");
         }catch(IOException e){
-            System.out.println("Erreur lors de la sauvegarde des données.");
+            System.out.println("Erreur lors de la sauvegarde des données." + e.getMessage());
+            throw e;
         }
     }
 
