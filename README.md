@@ -18,11 +18,26 @@
 
 
 ## Captures d'écran du projet : 
+### Capture d'écran menu gestion de starfleet : 
 * capture d'écran du menu de gestion de starfleet reservation : ![Menu de gestion de starfleet](screenshots/menu_gestion_starfleet.png)
+### Captures d'écrans de gestion des vaisseaux :
 * capture d'écran de la gestion des vaisseaux : ![Menu de gestion des vaisseaux](screenshots/gestion_vaisseaux.png)
 * capture d'écran : afficher tous les vaisseaux : ![Afficher vaisseaux](screenshots/afficher_vaisseau.png)
 * capture d'écran d'ajouter un vaisseau : ![Ajouter vaisseau](screenshots/ajouter_vaisseau.png)
 * capture d'écran de supprimer un vaisseau : ![Supprimer vaisseau](screenshots/supprimer_vaisseau.png)
+### Captures d'écran de la gestion des personnes : 
+* capture d'écran pour afficher les personnes : ![Afficher personnes](screenshots/afficher_personnes.png)
+* capture d'écran pour ajouter une personne : ![Ajouter personne](screenshots/ajouter_personne.png)
+* capture d'écran pour supprimer une personne : ![Supprimer personne](screenshots/supprimer_personne.png)
+### Captures d'écran de la gestion des missions : 
+* capture d'écran pour afficher les missions : ![Afficher missions](screenshots/afficher_missions.png)
+* capture d'écran pour ajouter une mission : ![Ajouter mission](screenshots/ajouter_mission.png)
+* capture d'écran pour supprimer une mission : ![Supprimer mission](screenshots/supprimer_mission.png)
+### Captures d'écran de la gestion des réservations : 
+* capture d'écran pour afficher les réservations : ![Afficher réservations](screenshots/afficher_reservations.png)
+* capture d'écran pour ajouter une réservation : ![Ajouter réservation](screenshots/ajouter_reservation.png)
+* capture d'écran pour supprimer une réservation : ![Supprimer réservation](screenshots/supprimer_reservation.png)
+
 
 ## Difficultés rencontrées : 
 Problèmes liés à la configuration du classpath donc j'avais quelques erreurs liées à mes packages et mes imports. J'ai réussi à corriger ce problème en modifiant le classpath. 
