@@ -1,10 +1,11 @@
 package fr.starfleet.modele.vaisseau;
 
 import fr.starfleet.modele.mission.Mission;
+import java.io.Serializable;
 import java.util.*;
 
 /**Classe Vaisseau du projet */
-public class Vaisseau {
+public class Vaisseau implements Serializable{
     /**Attribut nom du vaisseau */
     private String nom;
     /**Attribut immatriculation du vaisseau */
