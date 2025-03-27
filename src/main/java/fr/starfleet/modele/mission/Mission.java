@@ -2,10 +2,11 @@ package fr.starfleet.modele.mission;
 
 import fr.starfleet.modele.reservation.Reservation;
 import fr.starfleet.modele.vaisseau.Vaisseau;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
 /**Classe Mission */
-public class Mission {
+public class Mission implements Serializable{
     /**Attribut code de la mission */
     private String code;
     /**Attribut descrription de la mission */
