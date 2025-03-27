@@ -4,10 +4,11 @@ import fr.starfleet.modele.mission.Mission;
 import fr.starfleet.modele.personne.Personne;
 import fr.starfleet.modele.reservation.Reservation;
 import fr.starfleet.modele.vaisseau.Vaisseau;
+import java.io.Serializable;
 import java.util.*;
 
 /**Classe SystemeReservation */
-public class SystemeReservation {
+public class SystemeReservation implements Serializable{
     /**Attribut liste de vaisseaux pour le système de réservation */
     private List<Vaisseau> vaisseaux;
     /**Attribut liste de personnes pour le système de réservation */
