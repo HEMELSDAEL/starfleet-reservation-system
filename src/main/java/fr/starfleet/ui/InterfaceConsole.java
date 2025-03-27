@@ -12,11 +12,18 @@ public class InterfaceConsole {
     private final SystemeReservation systeme;
     private transient final Scanner scanner;
 
+    /**
+     * Constructeur de la classe
+     */
     public InterfaceConsole(){
         this.systeme = new SystemeReservation();
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * méthode pour démarrer l'interface console
+     * @throws IOException : exception IO 
+     */
     public void demarrer() throws IOException{
         boolean continuer = true;
         while(continuer){
@@ -52,6 +59,9 @@ public class InterfaceConsole {
         }
     }
 
+    /**
+     * Méthode pour afficher le menu de l'interface console
+     */
     private void afficherMenu(){
         System.out.println("\n----------Menu de gestion de starfleet reservation system----------");
         System.out.println("1. Gérer les vaisseaux");
@@ -63,6 +73,9 @@ public class InterfaceConsole {
         System.out.println("7. Quittez");
     }
 
+    /**
+     * Méthode pour gérer la gestion des vaisseaux
+     */
     private void gererVaisseaux(){
         System.out.println("\n-----Gestion des vaisseaux-----");
         System.out.println("1. Afficher tous les vaisseaux");
@@ -98,6 +111,9 @@ public class InterfaceConsole {
         }
     }
 
+    /**
+     * Méthode pour gérer la gestion des personnes
+     */
     private void gererPersonnes(){
         System.out.println("\n-----Gestion des personnes-----");
         System.out.println("1. Afficher toutes les personnes");
@@ -146,6 +162,9 @@ public class InterfaceConsole {
         }
     }
 
+    /**
+     * Méthode pour gérer la gestion des missions
+     */
     private void gererMissions(){
         System.out.println("\n-----Gestion des missions-----");
         System.out.println("1. Afficher toutes les missions");
@@ -209,6 +228,9 @@ public class InterfaceConsole {
         }
     }
 
+    /**
+     * Méthode pour gérer la gestion des réservations
+     */
     private void gererReservations(){
         System.out.println("\n===== Gestion des Réservations =====");
         System.out.println("1. Afficher toutes les réservations");
@@ -243,6 +265,11 @@ public class InterfaceConsole {
         }
     }
 
+    /**
+     * Méthode pour sauvegarder les données dans un fichier
+     * @param fichier : fichier où seront sauvegardées les données
+     * @throws IOException : exception en cas d'erreur de sauvegarde
+     */
     private void sauvegarderDonnees(String fichier) throws IOException{
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))){
             oos.writeObject(systeme);
@@ -253,6 +280,11 @@ public class InterfaceConsole {
         }
     }
 
+    /**
+     * Méthode pour charger les données depuis un fichier
+     * @param fichier : fichier d'où seront chargées les données
+     * @return : les données qui étaient stockées dans le fichier
+     */
     public static SystemeReservation chargerDonnees(String fichier){
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier))){
             return (SystemeReservation) ois.readObject();
