@@ -85,7 +85,10 @@ public class Vaisseau implements Serializable{
         return this.missions;
     }
 
-    
+    /**
+     * Méthode toString pour afficher une description du vaisseau
+     * @return : une description du vaisseau
+     */
     @Override
     public String toString(){
         return "Vaisseau : immatriculation : " + this.getImmatriculation() + " nom : " + this.getNom() + " et de capacité maximale : " + this.getCapaciteMaximale();
@@ -99,6 +102,10 @@ public class Vaisseau implements Serializable{
         this.missions.add(mission);
     }
 
+    /**
+     * Setter pour modifier la liste des missions
+     * @param missions : noouvelle liste de mission
+     */
     public void setMissions(List<Mission> missions) {
         this.missions = missions;
     }
