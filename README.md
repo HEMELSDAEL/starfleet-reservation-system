@@ -1,6 +1,7 @@
 # starfleet-reservation-system
 
 ### Projet final de Java : HEMELSDAEL Alexandre CMS B2
+Lien vers le projet github : https://github.com/HEMELSDAEL/starfleet-reservation-system
 
 * **commande pour compiler toutes les classes en même temps** : se placer dans le dossier starfleet : `javac modele/mission/*.java modele/personne/*.java modele/reservation/*.java modele/vaisseau/*.java systeme/*.java ui/*.java Main.java`
 
